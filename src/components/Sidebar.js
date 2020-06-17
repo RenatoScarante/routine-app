@@ -7,10 +7,10 @@ const Sidebar = props => {
   return (
     <ListGroup flush>
       <ListGroupItem tag="a" href="#">
-        Agenda
+        Rotinas
       </ListGroupItem>
       <ListGroupItem tag="a" href="#">
-        Tarefas
+        Atividades
       </ListGroupItem>
     </ListGroup>
   );

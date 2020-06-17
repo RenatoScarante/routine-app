@@ -25,7 +25,7 @@ const Login = () => {
 
       dispatch(authActions.login(user, response.token));
 
-      history.push("/home");
+      history.push("/dashboard");
     }
   }
 

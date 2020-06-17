@@ -23,7 +23,7 @@ export async function reauthenticate() {
     const data = { email: user.email };
 
     await api
-      .post(process.env.REACT_APP_USER_REAUTHENTICATE_URL, data)
+      .post(process.env.REACT_APP_URL_AUTH_LOGIN, data)
       .then(res => {
         response = res.data;
       })
@@ -46,7 +46,7 @@ export async function doLogin(data) {
     const authentication = data;
 
     await api
-      .post(process.env.REACT_APP_USER_AUTHENTICATE_URL, authentication)
+      .post(process.env.REACT_APP_URL_AUTH_LOGIN, authentication)
       .then(res => {
         response = res.data;
       })

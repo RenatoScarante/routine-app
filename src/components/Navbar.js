@@ -5,7 +5,6 @@ import { Link, NavLink as RRNavLink } from "react-router-dom";
 
 import classnames from "classnames";
 
-//import { reauthenticate } from "../services/auth";
 import { Creators as authActions } from "../redux/ducks/auth";
 
 import {
@@ -37,22 +36,6 @@ const NavbarMain = () => {
 
     history.push("/");
   }
-
-  // async function checkUser() {
-  //   if (user === undefined || user.id === undefined) {
-  //     const response = await reauthenticate();
-
-  //     if (response.user !== undefined) {
-  //       const user = response.user;
-
-  //       dispatch(authActions.login({ user: user, token: response.token }));
-
-  //       history.push("/");
-  //     }
-  //   }
-  // }
-
-  //checkUser();
 
   useEffect(() => {
     const updateNavbarColor = () => {
@@ -118,6 +101,34 @@ const NavbarMain = () => {
                   Dashboard
                 </NavLink>
               </NavItem>
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    data-placement="bottom"
+                    tag={RRNavLink}
+                    exact
+                    to="/dashboard/routine"
+                    onClick={toggleNavbarCollapse}
+                    activeClassName="active"
+                  >
+                    Rotinas
+                  </NavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <NavLink
+                    data-placement="bottom"
+                    tag={RRNavLink}
+                    exact
+                    to="/dashboard/people"
+                    onClick={toggleNavbarCollapse}
+                    activeClassName="active"
+                  >
+                    Pessoas
+                  </NavLink>
+                </NavItem>
+              )}
             </Nav>
             <Nav className="ml-sm-auto" navbar>
               {isAuthenticated ? (

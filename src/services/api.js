@@ -1,12 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: process.env.REACT_APP_URL_BASE,
   responseType: "json"
 });
 
 api.interceptors.request.use(async config => {
-  const token = localStorage.getItem(process.env.REACT_APP_STORAGE_TOKEN);
+  const { auth } = JSON.parse(localStorage.getItem("reduxStore"));
+  const token = auth.token;
 
   if (token) {
     config.headers = {

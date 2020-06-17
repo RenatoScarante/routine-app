@@ -12,6 +12,9 @@ import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Page404 from "../pages/misc/Page404";
 
+import Routine from "../pages/Routine";
+import People from "../pages/People";
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -53,11 +56,20 @@ const Routes = () => {
           )}
         />
         <PrivateRoute
-          path="/dashboard/tasks"
+          path="/dashboard/routine"
           exact={true}
           render={props => (
             <DashboardLayout>
-              <Home {...props} />
+              <Routine {...props} />
+            </DashboardLayout>
+          )}
+        />
+        <PrivateRoute
+          path="/dashboard/people"
+          exact={true}
+          render={props => (
+            <DashboardLayout>
+              <People {...props} />
             </DashboardLayout>
           )}
         />
